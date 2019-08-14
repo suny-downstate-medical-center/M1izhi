@@ -10,7 +10,7 @@ simConfig = specs.SimConfig()   # object of class SimConfig to store the simulat
 # SIMULATION CONFIGURATION
 
 ## Simulation parameters
-simConfig.duration = 8*1e3 # Duration of the simulation, in ms
+simConfig.duration = 80*1e3 # Duration of the simulation, in ms
 simConfig.dt = 0.05 # Internal integration timestep to use
 simConfig.intervalSave = 1000
 simConfig.seeds = {'conn': 1, 'stim': 1, 'loc': 1} # Seeds for randomizers (connectivity, input stimulation and cell locations)
@@ -27,18 +27,17 @@ simConfig.recordTraces = {'V':{'sec':'soma','loc':0.5,'var':'v'}} # 'V':{'sec':'
     #'AMPA_i': {'sec':'soma', 'loc':'0.5', 'synMech':'AMPA', 'var':'i'},
     #'NMDA_i': {'sec':'soma', 'loc':'0.5', 'synMech':'NMDA', 'var':'iNMDA'}}  # Dict of traces to record
 simConfig.recordStim = False  # record spikes of cell stims
-simConfig.recordStep = 0.1 # Step size in ms to save data (eg. V traces, LFP, etc)
+simConfig.recordStep = 0.05 # Step size in ms to save data (eg. V traces, LFP, etc)
 
 ## Saving
-simConfig.filename = 'data/19aug13b'  # Set file output name
-simConfig.saveFileStep = 1000 # step size in ms to save data to disk
-simConfig.savePickle = False # save to pickle file
+simConfig.filename = 'data/19aug14a'  # Set file output name
+simConfig.intervalSave = 1000 # step size in ms to save data to disk
+simConfig.savePickle = True # save to pickle file
 simConfig.saveJson = False # save to json file
 simConfig.saveMat = False # save to mat file
 simConfig.saveTxt = False # save to txt file
 simConfig.saveDpk = False # save to .dpk pickled file
 simConfig.saveHDF5 = False # save to HDF5 file 
-
 
 ## Analysis and plotting 
 simConfig.addAnalysis('plotRaster', True) # Whether or not to plot a raster
